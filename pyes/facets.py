@@ -44,6 +44,11 @@ class Facet(EqualityComparableUsingAttributeDictionary):
         self.is_global = is_global
         self.facet_filter = facet_filter
 
+    def serialize(self):
+        data = self._base_parameters()
+        data[self._internal_name]= self.query.serialize()
+        return {self.name: data}
+
     def _base_parameters(self):
         data = {}
         if self.scope is not None:
