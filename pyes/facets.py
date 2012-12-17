@@ -67,7 +67,7 @@ class QueryFacet(Facet):
     _internal_name = "query"
 
     def __init__(self, name, query, **kwargs):
-        super(QueryFacet, self).__init__(**kwargs)
+        super(QueryFacet, self).__init__(name, **kwargs)
         self.name = name
         self.query = query
 
@@ -81,7 +81,7 @@ class FilterFacet(Facet):
     _internal_name = "filter"
 
     def __init__(self, name, query, **kwargs):
-        super(FilterFacet, self).__init__(**kwargs)
+        super(FilterFacet, self).__init__(name, **kwargs)
         self.name = name
         self.query = query
 
@@ -99,7 +99,7 @@ class HistogramFacet(Facet):
                  key_field=None, value_field=None,
                  key_script=None, value_script=None, params=None,
                  **kwargs):
-        super(HistogramFacet, self).__init__(**kwargs)
+        super(HistogramFacet, self).__init__(name, **kwargs)
         self.name = name
         self.field = field
         self.interval = interval
@@ -154,7 +154,7 @@ class DateHistogramFacet(Facet):
                  field=None, interval=None, zone=None,
                  key_field=None, value_field=None,
                  value_script=None, params=None, **kwargs):
-        super(DateHistogramFacet, self).__init__(**kwargs)
+        super(DateHistogramFacet, self).__init__(name, **kwargs)
         self.name = name
         self.field = field
         self.interval = interval
@@ -199,7 +199,7 @@ class RangeFacet(Facet):
                  key_field=None, value_field=None,
                  key_script=None, value_script=None, params=None,
                  **kwargs):
-        super(RangeFacet, self).__init__(**kwargs)
+        super(RangeFacet, self).__init__(name, **kwargs)
         self.name = name
         self.field = field
         if ranges is None:
@@ -248,7 +248,7 @@ class StatisticalFacet(Facet):
     _internal_name = "statistical"
 
     def __init__(self, name, field=None, script=None, params=None, **kwargs):
-        super(StatisticalFacet, self).__init__(**kwargs)
+        super(StatisticalFacet, self).__init__(name, **kwargs)
         self.name = name
         self.field = field
         self.script = script
@@ -276,7 +276,7 @@ class TermFacet(Facet):
                  order=None, exclude=None,
                  regex=None, regex_flags="DOTALL",
                  script=None, all_terms=None, **kwargs):
-        super(TermFacet, self).__init__(**kwargs)
+        super(TermFacet, self).__init__(name, **kwargs)
         self.name = name
         self.field = field
         self.fields = fields
@@ -328,7 +328,7 @@ class TermStatsFacet(Facet):
                  key_field=None, value_field=None,
                  key_script=None, value_script=None, params=None,
                  **kwargs):
-        super(TermStatsFacet, self).__init__(**kwargs)
+        super(TermStatsFacet, self).__init__(name, **kwargs)
         self.name = name
         self.size = size
         self.ORDER_VALUES = ['term', 'reverse_term', 'count', 'reverse_count', 'total',
