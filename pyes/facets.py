@@ -32,6 +32,8 @@ class FacetFactory(EqualityComparableUsingAttributeDictionary):
     def q(self):
         res = {}
         for facet in self.facets:
+            print facet
+            print 'FACET RIGHT ABOVE.'
             res.update(facet.serialize())
         return {"facets": res}
 
