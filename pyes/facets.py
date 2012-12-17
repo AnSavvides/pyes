@@ -32,19 +32,18 @@ class FacetFactory(EqualityComparableUsingAttributeDictionary):
     def q(self):
         res = {}
         for facet in self.facets:
-            print facet
-            print 'FACET RIGHT ABOVE.'
             res.update(facet.serialize())
         return {"facets": res}
 
 
 class Facet(EqualityComparableUsingAttributeDictionary):
-    def __init__(self, scope=None, nested=None,
+    def __init__(self, name, scope=None, nested=None,
                  is_global=None, facet_filter=None, *args, **kwargs):
         self.scope = scope
         self.nested = nested
         self.is_global = is_global
         self.facet_filter = facet_filter
+        self.name = name
 
     def serialize(self):
         data = self._base_parameters()
